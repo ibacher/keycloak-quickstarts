@@ -101,19 +101,19 @@ public class ArquillianActionTokenWithAuthenticatorTest {
     @OperateOnDeployment(PROVIDER_JAR)
     private URL keycloakContextRoot;
 
-    @Deployment(testable=false, name=PROVIDER_JAR)
-    @TargetsContainer("keycloak-remote")
-    public static Archive<?> createProviderArchive() throws IOException {
-        return ShrinkWrap.create(JavaArchive.class, "action-token-provider.jar")
-                .addClasses(
-                  ExternalApplicationNotificationActionToken.class,
-                  ExternalApplicationNotificationActionTokenHandler.class,
-                  ExternalAppAuthenticator.class,
-                  ExternalAppAuthenticatorFactory.class)
-                .addAsManifestResource(new File(RESOURCES_SRC, "MANIFEST.MF"))
-                .addAsServiceProvider(AuthenticatorFactory.class, ExternalAppAuthenticatorFactory.class)
-                .addAsServiceProvider(ActionTokenHandlerFactory.class, ExternalApplicationNotificationActionTokenHandler.class);
-    }
+//    @Deployment(testable=false, name=PROVIDER_JAR)
+//    @TargetsContainer("keycloak-remote")
+//    public static Archive<?> createProviderArchive() throws IOException {
+//        return ShrinkWrap.create(JavaArchive.class, "action-token-provider.jar")
+//                .addClasses(
+//                  ExternalApplicationNotificationActionToken.class,
+//                  ExternalApplicationNotificationActionTokenHandler.class,
+//                  ExternalAppAuthenticator.class,
+//                  ExternalAppAuthenticatorFactory.class)
+//                .addAsManifestResource(new File(RESOURCES_SRC, "MANIFEST.MF"))
+//                .addAsServiceProvider(AuthenticatorFactory.class, ExternalAppAuthenticatorFactory.class)
+//                .addAsServiceProvider(ActionTokenHandlerFactory.class, ExternalApplicationNotificationActionTokenHandler.class);
+//    }
 
     @Deployment(testable=false, name=EXTERNAL_APP)
     @TargetsContainer("wildfly")
